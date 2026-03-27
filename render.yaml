@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: clientflow-portal
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20.20.2
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      - key: NEXT_PUBLIC_PORTAL_NAME
+        value: ClientFlow Portal
+      - key: NEXT_PUBLIC_COMPANY_NAME
+        value: Northstar Service Group
+      - key: NEXT_PUBLIC_LOGO_PLACEHOLDER
+        value: CF
+      - key: NEXT_PUBLIC_ACCENT_HSL
+        value: 175 72% 32%
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://clientflow-portal.onrender.com
