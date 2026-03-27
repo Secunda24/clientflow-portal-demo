@@ -456,13 +456,13 @@ export const testimonials = [
 export const pricingTiers = [
   {
     name: "Starter",
-    price: "$149/mo",
+    price: "R 50/mo",
     description: "For smaller teams that need a branded request and document portal.",
     features: ["Client dashboard", "Requests and documents", "Invoices", "Knowledge base"]
   },
   {
     name: "Growth",
-    price: "$349/mo",
+    price: "R 95/mo",
     description: "For agencies and service teams that want projects, messaging, and admin workflows.",
     features: ["Everything in Starter", "Project tracking", "Messaging", "Custom branding"]
   },

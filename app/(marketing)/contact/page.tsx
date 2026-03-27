@@ -12,12 +12,12 @@ const contactWays = [
   },
   {
     title: "Email the team",
-    detail: "hello@clientflowportal.com",
+    detail: "sales@secunda24.co.za",
     icon: Mail
   },
   {
     title: "Call for a guided demo",
-    detail: "+1 (555) 555-0145",
+    detail: "082 529 2885",
     icon: PhoneCall
   }
 ];
@@ -58,4 +58,3 @@ export default function ContactPage() {
     </div>
   );
 }
-
