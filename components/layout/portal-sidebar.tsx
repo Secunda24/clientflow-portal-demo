@@ -1,8 +1,21 @@
 "use client";
 
-import type { ComponentType } from "react";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import {
+  BookOpen,
+  CreditCard,
+  Files,
+  FolderKanban,
+  LayoutDashboard,
+  Menu,
+  MessageSquare,
+  Paintbrush,
+  Settings,
+  Shield,
+  Ticket,
+  Users,
+  type LucideIcon
+} from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { SiteLogo } from "@/components/shared/site-logo";
@@ -12,12 +25,21 @@ import {
   DialogContent,
   DialogTrigger
 } from "@/components/ui/dialog";
+import type { PortalNavIcon, PortalNavItem } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
-type NavItem = {
-  label: string;
-  href: string;
-  icon: ComponentType<{ className?: string }>;
+const iconMap: Record<PortalNavIcon, LucideIcon> = {
+  dashboard: LayoutDashboard,
+  ticket: Ticket,
+  projects: FolderKanban,
+  documents: Files,
+  billing: CreditCard,
+  messages: MessageSquare,
+  "knowledge-base": BookOpen,
+  settings: Settings,
+  clients: Users,
+  branding: Paintbrush,
+  audit: Shield
 };
 
 function NavContent({
@@ -25,7 +47,7 @@ function NavContent({
   portalName,
   mark
 }: {
-  items: NavItem[];
+  items: PortalNavItem[];
   portalName: string;
   mark: string;
 }) {
@@ -36,7 +58,7 @@ function NavContent({
       <SiteLogo name={portalName} mark={mark} href="/" />
       <div className="space-y-2">
         {items.map((item) => {
-          const Icon = item.icon;
+          const Icon = iconMap[item.icon];
           const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
           return (
             <Link
@@ -64,7 +86,7 @@ export function PortalSidebar({
   portalName,
   mark
 }: {
-  items: NavItem[];
+  items: PortalNavItem[];
   portalName: string;
   mark: string;
 }) {
